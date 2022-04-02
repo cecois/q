@@ -6,6 +6,7 @@ import Index from '/src/components/Index.vue'
 
 const rfunc = (route) => {
     return {
+        panes: ['home', 'bio', 'stats', 'video', 'teams'],
         pane: !route.params.pane ? 'home' : route.params.pane
     }
 }

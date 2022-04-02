@@ -1,8 +1,10 @@
 <template>
   <div class="">
     <div class=""></div>
-    <div class="">
-      pane1 • pane2
+    <div class="">{{pane}}
+      <ul>
+        <li @click="pane=p" v-for="p in panes">p.{{p}}</li>
+      </ul>
     </div>
   </div>
 </template>
@@ -10,7 +12,7 @@
 <script setup>
 import { ref, onMounted, watch } from 'vue'
 
-const PROPS = defineProps({ panel: String })
+const PROPS = defineProps({ panes: Array, pane: String })
   // const emit = defineEmits(['set-panel'])
 
 /*
@@ -22,11 +24,11 @@ const PROPS = defineProps({ panel: String })
   \__/   '.__.'_/ '.__.' \______.'
 */
 onMounted(() => {
-  nav(PROPS.panel)
+  nav(PROPS.pane)
 })
 
-watch(() => [PROPS.panel], (newp, oldp) => {
-  nav(PROPS.panel)
+watch(() => [PROPS.pane], (newp, oldp) => {
+  nav(PROPS.pane)
 })
 
 const nav = (el) => {
