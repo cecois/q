@@ -5,9 +5,6 @@ import { useRoute, useRouter } from 'vue-router'
 import InternalNav from '/src/components/InternalNav.vue'
 
 const PROPS = defineProps({ panes: Array, pane: String });
-// defineProps({
-//   msg: String
-// })
 
 const count = ref(0)
 </script>
@@ -16,7 +13,7 @@ const count = ref(0)
     <div class="the-grid grid-nav">
       <div id="" class="logo">
         <div class="logo-circle"></div>
-        <div class="logo-text">Kyu Miller pane:{{pane}}</div>
+        <div class="logo-text">Kyu Miller</div>
       </div>
       <InternalNav @set-panel="_setPane" :pane="pane" :panes="panes" />
       <!--       <div id="" class="social-links">

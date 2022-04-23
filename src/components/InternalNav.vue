@@ -1,9 +1,12 @@
 <template>
   <div class="">
     <div class=""></div>
-    <div class="">{{pane}}
+    <div id="navInternal" class="">
       <ul>
-        <li @click="pane=p" v-for="p in panes">p.{{p}}</li>
+        <li class="logo-text" v-for="p in panes">
+          <a v-if="pane!==p" @click.prevent="pane=p" href="">{{p}}</a>
+          <span v-else>{{p}}</span>
+        </li>
       </ul>
     </div>
   </div>
@@ -36,3 +39,21 @@ const nav = (el) => {
   element.scrollIntoView({ block: 'end', behavior: 'smooth' })
 }
 </script>
+
+<style scoped>
+#navInternal ul {
+  float: right;
+}
+
+#navInternal li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 20px;
+}
+
+#navInternal li a {
+  text-decoration: none;
+  /*text-shadow: 2px 2px 8px rgba(255, 255, 255, 1);*/
+  text-shadow: 2px 4px 1px pink, 2px 4px 1px pink, 2px 4px 1px pink, 2px 4px 1px pink;
+}
+</style>
